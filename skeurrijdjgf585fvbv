@@ -1,1 +1,77 @@
 dm1lc3M6Ly9leUpoWkdRaU9pSnhkV2w2TG5acFpHbHZMbU52YlNJc0ltRnBaQ0k2TUN3aWFHOXpkQ0k2SW1SNWJtRnRhV010YzJjeFlpNXZZbVp6TG5oNWVpSXNJbWxrSWpvaU9USTROamxrTkRFdFlUazRZUzAwTUdKaExXSTNPV1F0TW1WbFlqZG1abVV5TkRNeklpd2libVYwSWpvaWQzTWlMQ0p3WVhSb0lqb2lMM2R2Y25KNVpuSmxaU0lzSW5CdmNuUWlPalEwTXl3aWNITWlPaUpuYVhSb2RXSXVZMjl0TDJaeVpXVm1jU0F0SUZ4MU4wWTRSVngxTlRaR1JFTnNiM1ZrUm14aGNtVmNkVFV4TmtOY2RUVXpSamhEUkU1Y2RUZ3lPREpjZFRjd1Fqa2dOeUlzSW5Sc2N5STZJblJzY3lJc0luWWlPako5
+
+
+dm1lc3M6Ly9leUpoWkdRaU9pSnhkV2w2TG5acFpHbHZMbU52YlNJc0ltRnBaQ0k2TUN3aWFHOXpkQ0k2SW1SNWJtRnRhV010YzJjeFlpNXZZbVp6TG5oNWVpSXNJbWxrSWpvaU9USTROamxrTkRFdFlUazRZUzAwTUdKaExXSTNPV1F0TW1WbFlqZG1abVV5TkRNeklpd2libVYwSWpvaWQzTWlMQ0p3WVhSb0lqb2lMM2R2Y25KNVpuSmxaU0lzSW5CdmNuUWlPalEwTXl3aWNITWlPaUpuYVhSb2RXSXVZMjl0TDJaeVpXVm1jU0F0SUZ4MU4wWTRSVngxTlRaR1JFTnNiM1ZrUm14aGNtVmNkVFV4TmtOY2RUVXpSamhEUkU1Y2RUZ3lPREpjZFRjd1Fqa2dOeUlzSW5Sc2N5STZJblJzY3lJc0luWWlPako5
+dm1lc3M6Ly9leUpoWkdRaU9pSXhNRFF1TWpJdU5Ua3VNVGsxSWl3aVlXbGtJam93TENKb2IzTjBJam9pTVM0eU16a3dNREF1ZUhsNklpd2lhV1FpT2lKaE1UVTJNR0kxTWkxaU5UZ3dMVFJoWVdRdFlqaGpaQzA1WTJReVpXTTFNalkwWWpRaUxDSnVaWFFpT2lKM2N5SXNJbkJoZEdnaU9pSXZkbTFsYzNOM2N5SXNJbkJ2Y25RaU9qUTBNeXdpY0hNaU9pSjNkM2N1ZVc5MWJtVmxaQzUzYVc0aUxDSjBiSE1pT2lKMGJITWlMQ0owZVhCbElqb2libTl1WlNJc0luWWlPako5DQp2bWVzczovL2V5SmhaR1FpT2lJeE1EUXVNakl1TlRrdU1UazFJaXdpWVdsa0lqb3dMQ0pvYjNOMElqb2lNUzR5TXprd01EQXVlSGw2SWl3aWFXUWlPaUpoTVRVMk1HSTFNaTFpTlRnd0xUUmhZV1F0WWpoalpDMDVZMlF5WldNMU1qWTBZalFpTENKdVpYUWlPaUozY3lJc0luQmhkR2dpT2lJdmRtMWxjM04zY3lJc0luQnZjblFpT2pRME15d2ljSE1pT2lKM2QzY3VlVzkxYm1WbFpDNTNhVzRpTENKMGJITWlPaUowYkhNaUxDSjBlWEJsSWpvaWJtOXVaU0lzSW5ZaU9qSjk=
+
+{
+    "inbounds": [
+        {
+            "listen": "127.0.0.1",
+            "port": 0,
+            "protocol": "socks",
+            "settings": {
+                "auth": "noauth",
+                "udp": true
+            },
+            "sniffing": {
+                "destOverride": [
+                    "http",
+                    "tls"
+                ],
+                "enabled": true
+            },
+            "tag": "proxy"
+        },
+        {
+            "listen": "127.0.0.1",
+            "port": 0,
+            "protocol": "http",
+            "settings": {},
+            "sniffing": {
+                "destOverride": [
+                    "http",
+                    "tls"
+                ],
+                "enabled": true
+            },
+            "tag": "http_proxy"
+        }
+    ],
+    "log": {
+        "access": "",
+        "error": "",
+        "loglevel": "warning"
+    },
+    "outbounds": [
+        {
+            "tag": "proxy"
+        },
+        {
+            "protocol": "freedom",
+            "settings": {},
+            "tag": "direct"
+        },
+        {
+            "protocol": "blackhole",
+            "settings": {
+                "response": {
+                    "type": "http"
+                }
+            },
+            "tag": "block"
+        }
+    ],
+    "routing": {
+        "domainStrategy": "IPIfNonMatch",
+        "rules": [
+            {
+                "inboundTag": [
+                    "api"
+                ],
+                "outboundTag": "api",
+                "type": "field"
+            }
+        ]
+    }
+}
